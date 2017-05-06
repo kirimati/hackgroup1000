@@ -1,0 +1,20 @@
+<ion-view name="tab-login" view-title="Login">
+  <!-- <ion-nav-buttons side="left"></ion-nav-buttons> -->
+  <ion-content>
+
+    <h2>Sign In</h2>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="loginData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Mot de passe</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" ng-click="login()">Valider</button>
+        </label>
+      </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,11 @@
+{
+  "name": "MOn application super stylée App",
+  "short_name": "Myhbdjzajhdzajbhdazb Ionic App",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}
