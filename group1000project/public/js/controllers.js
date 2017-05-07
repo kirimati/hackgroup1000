@@ -1,6 +1,6 @@
 angular.module('app', ['our.services'])
 
-  .controller('setCtrl', function($scope, Resources) {
+  .controller('SetCtrl', function($scope, Resources) {
     $scope.set = {};
     $scope.set.picks = [];
     $scope.set.links = [];
