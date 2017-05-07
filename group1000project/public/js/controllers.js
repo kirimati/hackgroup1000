@@ -8,7 +8,7 @@ angular.module("app", [])
 
     $scope.addSet(username) {
       Resources.save({username: username}, {set: $scope.set}, function() {
-            $state.go("tab.friend", {}, {reload: true});
+            $state.go("#", {}, {reload: true});
       });
     }
 
