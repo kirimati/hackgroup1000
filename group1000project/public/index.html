@@ -30,10 +30,10 @@
 
 <body>
     <div ng-include="'pages/navbar.html'"> </div>
-    <!-- <div ng-controller="index"> -->
-      <!-- <div ng-include="'pages/login.html'"> </div> -->
-      <div ng-include="'pages/posts.html'"> </div>
-    <!-- </div> -->
+    <div ng-controller="index">
+      <div ng-include="'pages/login.html'" ng-show="logged" class="ng-hide"> </div>
+      <div ng-include="'pages/posts.html'" ng-show="logged"> </div>
+    </div>
     <div ng-include="'pages/footer.html'"> </div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
