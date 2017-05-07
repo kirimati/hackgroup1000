@@ -1,14 +1,11 @@
-angular.module('app', ['services'])
+angular.module('app', ['our.services'])
 
-  .controller("setCtrl", function($scope, Resources) {
+  .controller('SetCtrl', function($scope, Resources) {
     $scope.set = {};
     $scope.set.picks = [];
     $scope.set.links = [];
 
-    $scope.addSet = function(username) {
-      Resources.sets.save({username: username}, {set: $scope.set}, function() {
-            console.log('please refresh');
-            //$state.go("#", {}, {reload: true});
-      });
+    $scope.addSet = function(myname) {
+      Resources.sets.save({username: myname}, {set: $scope.set});
     };
   });
