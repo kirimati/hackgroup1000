@@ -2,7 +2,6 @@
 <html lang="en" ng-app='app'>
 
 <head ng-controller='head'>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,16 +30,13 @@
 <body>
     <div ng-include="'pages/navbar.html'"> </div>
     <div ng-controller="index">
-      <div ng-include="'pages/login.html'" ng-show="logged" class="ng-hide"> </div>
-      <div ng-include="'pages/posts.html'" ng-show="logged"> </div>
+        <h3>
+            {{lol}}
+        </h3>
+      <div ng-include="'pages/login.html'" ng-if="!angular.isDefined(logged)" <!--class="ng-hide"-->> </div>
+      <div ng-include="'pages/posts.html'" ng-if="angular.isDefined(logged)"/>
     </div>
     <div ng-include="'pages/footer.html'"> </div>
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

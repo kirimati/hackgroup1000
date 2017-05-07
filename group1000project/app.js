@@ -4,6 +4,7 @@ var SwaggerExpress = require('swagger-express-mw');
 
 var express = require('express');
 var app = require('express')();
+var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient, assert = require('assert');
 module.exports = app; // for testing
 var MongoUrl = 'mongodb://127.0.0.1:10010/SeekFriend';
@@ -24,7 +25,5 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   var port = process.env.PORT || 10010;
   app.listen(port);
 
-  if (swaggerExpress.runner.swagger.paths['/hello']) {
-    console.log('try this:\ncurl http://127.0.0.1:' + port + '/hello?name=Scott');
-  }
+  console.log('Server up and running on http://127.0.0.1:' + port);
 });
