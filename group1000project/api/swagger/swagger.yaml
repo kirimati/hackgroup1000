@@ -1,60 +1,179 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  version: "0.0.1"
-  title: Hello World App
-# during dev, should point to your local machine
-host: localhost:10010
-# basePath prefixes all resource paths 
+  version: 0.0.1
+  title: 'Hackgroup#1000 project'
+host: 'localhost:10010'
 basePath: /
-# 
 schemes:
-  # tip: remove http to make production-grade
   - http
   - https
-# format of bodies a client can send (Content-Type)
 consumes:
   - application/json
-# format of the responses to the client (Accepts)
 produces:
   - application/json
+parameters:
+  username:
+    name: username
+    description: Name of the user
+    in: path
+    type: string
+    required: true
+  login:
+    name: login
+    description: login object
+    in: body
+    required: true
+    schema:
+      $ref: '#/definitions/login'
 paths:
-  /hello:
-    # binds a127 app logic to a route
-    x-swagger-router-controller: hello_world
-    get:
-      description: Returns 'Hello' to the caller
-      # used as the method name of the controller
-      operationId: hello
+  /users:
+    post:
+      operationId: postUser
+      description: New user registration
       parameters:
-        - name: name
-          in: query
-          description: The name of the person to whom to say hello
-          required: false
-          type: string
+        - name: user
+          in: body
+          description: User informations
+          required: true
+          schema:
+            $ref: '#/definitions/user_post'
       responses:
-        "200":
+        '201':
+          description: Registration success
+        '400':
+          description: Wrong format
+        '409':
+          description: Username already used
+  /users/login:
+    post:
+      operationId: postLogin
+      description: login check
+      parameters:
+        - $ref: '#/parameters/login'
+      responses:
+        '201':
           description: Success
           schema:
-            # a pointer to a definition
-            $ref: "#/definitions/HelloWorldResponse"
-        # responses may fall through to errors
-        default:
-          description: Error
+            $ref: '#/definitions/user'
+        '404':
+          description: User not found
+  /sets:
+    post:
+      operationId: postSet
+      description: New set creation
+      parameters:
+        - name: set
+          in: body
+          description: Set informations
+          required: true
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /swagger:
-    x-swagger-pipe: swagger_raw
-# complex objects have schema definitions
+            $ref: '#/definitions/set_post'
+      responses:
+        '201':
+          description: Set creation successful
+        '400':
+          description: Wrong format
+        '409':
+          description: Set title already used
 definitions:
-  HelloWorldResponse:
-    required:
-      - message
+  user:
+    type: object
     properties:
-      message:
+      username:
         type: string
-  ErrorResponse:
+      email:
+        type: string
+  user_post:
+    type: object
     required:
-      - message
+      - username
+      - email
+      - password
     properties:
-      message:
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+        format: password
+  user_put:
+    type: object
+    properties:
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+        format: password
+  login:
+    type: object
+    required:
+      - username
+      - password
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+        format: password
+  set:
+    type: object
+    properties:
+      title:
+        type: string
+      tag:
+        type: string
+      username:
+        type: string
+      abstract:
+        type: string
+      picks:
+        type: array
+        items:
+          $ref: '#/definitions/pick'
+      links:
+        type: array
+        items:
+          $ref: '#/definitions/link'
+  set_post:
+    type: object
+    required:
+      - title
+      - tag
+      - username
+      - abstract
+      - picks
+      - links
+    properties:
+      title:
+        type: string
+      tag:
+        type: string
+      username:
+        type: string
+      abstract:
+        type: string
+      picks:
+        type: array
+        items:
+          $ref: '#/definitions/pick'
+      links:
+        type: array
+        items:
+          $ref: '#/definitions/link'
+  pick:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+  link:
+    type: object
+    required:
+      - reference
+    properties:
+      reference:
         type: string
