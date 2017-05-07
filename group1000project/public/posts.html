@@ -34,7 +34,7 @@
 
 </head>
 
-<body>
+<body ngController="setCtrl">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -52,8 +52,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="posts.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      LOVE BUTTON
+                    <a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Take me back home
                     </a>
                   </li>
                 </ul>
@@ -65,38 +65,22 @@
     <div class="container">
     <form>
       <div class="form-group">
-        <label for="exampleInputEmail1">Username</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+        <label>Username</label>
+        <input type="email" class="form-control" ng-model="username" placeholder="Username">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Title</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Title">
+        <label>Title</label>
+        <input type="password" class="form-control" ng-model="set.title" placeholder="Title">
       </div>
       <div class="form-group">
         <label for="exampleTextarea">Description</label>
-        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+        <textarea class="form-control" ng-model="set.abstract" rows="3"></textarea>
       </div>
       <div class="row">
         <div class="col-md-4">
           <nav class="navbar navbar-light bg-faded">
             <form class="form-inline">
-              <input class="form-control mr-sm-2" type="text" placeholder="Tag">
-            </form>
-          </nav>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <nav class="navbar navbar-light bg-faded">
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="text" placeholder="Pick1">
-            </form>
-          </nav>
-        </div>
-        <div class="col-md-4">
-          <nav class="navbar navbar-light bg-faded">
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="text" placeholder="Link1">
+              <input class="form-control mr-sm-2" type="text" ng-model="set.tag" placeholder="Tag">
             </form>
           </nav>
         </div>
@@ -105,20 +89,36 @@
         <div class="col-md-4">
           <nav class="navbar navbar-light bg-faded">
             <form class="form-inline">
-              <input class="form-control mr-sm-2" type="text" placeholder="Pick2">
+              <input class="form-control mr-sm-2" type="text" ng-model="set.picks[0]" placeholder="Pick1">
             </form>
           </nav>
         </div>
         <div class="col-md-4">
           <nav class="navbar navbar-light bg-faded">
             <form class="form-inline">
-              <input class="form-control mr-sm-2" type="text" placeholder="Link2">
+              <input class="form-control mr-sm-2" type="text" ng-model="set.links[0]" placeholder="Link1">
+            </form>
+          </nav>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <nav class="navbar navbar-light bg-faded">
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="text" ng-model="set.picks[1]" placeholder="Pick2">
+            </form>
+          </nav>
+        </div>
+        <div class="col-md-4">
+          <nav class="navbar navbar-light bg-faded">
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="text" ng-model="set.links[1]" placeholder="Link2">
             </form>
           </nav>
         </div>
       </div>
       </fieldset>
-      <button type="submit" class="btn btn-lg btn-primary">Post</button>
+      <button type="submit" ng-click="addSet(username)" class="btn btn-lg btn-primary">Post</button>
     </form>
   </div>
 </body>
