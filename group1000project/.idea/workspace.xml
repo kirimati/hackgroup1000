@@ -21,7 +21,7 @@
             <state relative-caret-position="522">
               <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
-                <marker date="1494145670216" expanded="true" signature="3331:3339" ph="..." />
+                <marker date="1494146313234" expanded="true" signature="3243:3251" ph="..." />
               </folding>
             </state>
           </provider>
@@ -30,8 +30,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+            <state relative-caret-position="180">
+              <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -43,8 +43,8 @@
             <state relative-caret-position="54">
               <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="21" />
               <folding>
-                <marker date="1494144712683" expanded="true" signature="120:254" ph="{...}" />
-                <marker date="1494144712683" expanded="true" signature="177:249" ph="{...}" />
+                <marker date="1494145836680" expanded="true" signature="120:254" ph="{...}" />
+                <marker date="1494145836680" expanded="true" signature="177:249" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -222,7 +222,7 @@
         <state relative-caret-position="522">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <marker date="1494145670216" expanded="true" signature="3331:3339" ph="..." />
+            <marker date="1494146313234" expanded="true" signature="3243:3251" ph="..." />
           </folding>
         </state>
       </provider>
@@ -240,16 +240,16 @@
         <state relative-caret-position="54">
           <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="21" />
           <folding>
-            <marker date="1494144712683" expanded="true" signature="120:254" ph="{...}" />
-            <marker date="1494144712683" expanded="true" signature="177:249" ph="{...}" />
+            <marker date="1494145836680" expanded="true" signature="120:254" ph="{...}" />
+            <marker date="1494145836680" expanded="true" signature="177:249" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+        <state relative-caret-position="180">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
           <folding />
         </state>
       </provider>

@@ -1,4 +1,4 @@
-angular.module('starter.services', ['ngResource'])
+angular.module('services', ['ngResource'])
 
   // defines all routes
   .factory('Resources', function($resource) {
@@ -6,4 +6,4 @@ angular.module('starter.services', ['ngResource'])
     return {
           sets: $resource(hostname.concat('/api/sets/:username');
    };
-  })
+  });
