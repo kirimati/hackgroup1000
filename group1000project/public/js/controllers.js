@@ -1,29 +1,20 @@
-angular.module("app", [])
-  .controller("head", function($scope){
+angular.module('app', ['services'])
+
+  .controller("head", function($scope) {
     $scope.pageTitle = "Group1000";
   })
-  .controller("index", function($rootScope, $scope){
-    $scope.playListTitle = "Coucou";
-    $scope.email = "";
-    $scope.pwd = "";
-    $rootScope.logged = {};
 
-    $scope.auth = function() {
-      var email = "ibalex.salino@gmail.com";
-      var pwd = "coucou";
-      if (angular.equals($scope.email, email) && angular.equals($scope.pwd, pwd)){
-        $rootScope.logged = true;
-          $scope.lol = "lol";
+  .controller("setCtrl", function($scope, Resources) {
+    $scope.set = {};
 
-        //$state.go("index.html", {}, {reload: true});
-      }
-    }
-
+    $scope.addSet = function(username) {
+      Resources.sets.save({username: username}, {set: $scope.set}, function() {
+            console.log('please refresh');
+            //$state.go("#", {}, {reload: true});
+      });
+    };
   })
 
   .controller("navbar", function($scope){
     $scope.barTitle = "Group1000";
-  })
-
-  .controller("footer", function($scope){
   });
