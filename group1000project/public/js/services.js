@@ -2,7 +2,7 @@ angular.module('starter.services', ['ngResource'])
 
   // defines all routes
   .factory('Resources', function($resource) {
-    var hostname = 'http://127.0.0.1:10010';
+    var hostname = 'http://127.0.0.1:3000';
     return {
       login: $resource(hostname.concat('/api/users/login')),
       users: $resource(hostname.concat('/api/users')),
