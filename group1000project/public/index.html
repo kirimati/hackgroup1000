@@ -30,9 +30,6 @@
 <body>
     <div ng-include="'pages/navbar.html'"> </div>
     <div ng-controller="index">
-        <h3>
-            {{lol}}
-        </h3>
       <div ng-include="'pages/login.html'" ng-if="!angular.isDefined(logged)" <!--class="ng-hide"-->> </div>
       <div ng-include="'pages/posts.html'" ng-if="angular.isDefined(logged)"/>
     </div>

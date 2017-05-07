@@ -2,6 +2,9 @@
 var MongoClient = require('mongodb').MongoClient
     , assert = require('assert');
 
+
+var util = require('util');
+
 var url = 'mongodb://localhost:10010/users';
 
 

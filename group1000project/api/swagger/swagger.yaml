@@ -3,7 +3,7 @@ info:
   version: 0.0.1
   title: 'Hackgroup#1000 project'
 host: 'localhost:10010'
-basePath: /
+basePath: /api
 schemes:
   - http
   - https
@@ -27,6 +27,7 @@ parameters:
       $ref: '#/definitions/login'
 paths:
   /users:
+    x-swagger-router-controller: sets
     post:
       operationId: postUser
       description: New user registration
@@ -45,6 +46,7 @@ paths:
         '409':
           description: Username already used
   /users/login:
+    x-swagger-router-controller: users
     post:
       operationId: postLogin
       description: login check
@@ -57,11 +59,13 @@ paths:
             $ref: '#/definitions/user'
         '404':
           description: User not found
-  /sets:
+  /sets/{username}:
+    x-swagger-router-controller: sets
     post:
-      operationId: postSet
+      operationId: postUserSet
       description: New set creation
       parameters:
+        - $ref: "#/parameters/username"
         - name: set
           in: body
           description: Set informations
@@ -97,16 +101,16 @@ definitions:
       password:
         type: string
         format: password
-  user_put:
-    type: object
-    properties:
-      username:
-        type: string
-      email:
-        type: string
-      password:
-        type: string
-        format: password
+#  user_put:
+#    type: object
+#    properties:
+#      username:
+#        type: string
+#      email:
+#        type: string
+#      password:
+#        type: string
+#        format: password
   login:
     type: object
     required:
@@ -118,31 +122,30 @@ definitions:
       password:
         type: string
         format: password
-  set:
-    type: object
-    properties:
-      title:
-        type: string
-      tag:
-        type: string
-      username:
-        type: string
-      abstract:
-        type: string
-      picks:
-        type: array
-        items:
-          $ref: '#/definitions/pick'
-      links:
-        type: array
-        items:
-          $ref: '#/definitions/link'
+#  set:
+#    type: object
+#    properties:
+#      title:
+#        type: string
+#      tag:
+#        type: string
+#      username:
+#        type: string
+#      abstract:
+#        type: string
+#      picks:
+#        type: array
+#        items:
+#          $ref: '#/definitions/pick'
+#      links:
+#        type: array
+#        items:
+#          $ref: '#/definitions/link'
   set_post:
     type: object
     required:
       - title
       - tag
-      - username
       - abstract
       - picks
       - links
@@ -151,8 +154,6 @@ definitions:
         type: string
       tag:
         type: string
-      username:
-        type: string
       abstract:
         type: string
       picks:
@@ -163,6 +164,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/link'
+
   pick:
     type: object
     required:
